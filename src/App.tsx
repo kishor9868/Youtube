@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useLayoutEffect } from 'react'
+import Navbar from './component/Navbar';
+import Sidebar from './component/Sidebar';
+import { Box, CircularProgress } from '@mui/material';
+import VideoList from './component/VideoList';
+import ShortsList from './component/ShortsList';
+import { useAppDispatch, useAppSelector } from './hook';
+import { searchHandler } from './redux/action/searchAction';
 
-function App() {
+const App = () => {
+  const dispatch = useAppDispatch()
+  const isLoading = useAppSelector(state => state.search.isLoading);
+
+
+  useLayoutEffect(() => {
+    dispatch(searchHandler("music"))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar />
+      <Box sx={{ display: 'flex' }}>
+        <Sidebar />
+        <Box component="main" sx={{ flexGrow: 1, padding: 2 }}>
+          {
+            isLoading ?
+              <Box display="flex" justifyContent="center" mt={5}>
+                <CircularProgress />
+              </Box>
+              :
+              <>
+                <ShortsList />
+                <VideoList />
+              </>
+          }
+        </Box>
+      </Box>
+    </>
+  )
 }
 
 export default App;
+
