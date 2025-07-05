@@ -1,18 +1,59 @@
-# Getting Started with Create React App
+# YouTube - Video Homepage Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple YouTube-style homepage built with **React**, **TypeScript**, and **Material UI (MUI)**. It features a clean layout with:
 
-## Available Scripts
+-Left side navigation bar
+-Top navigation bar
+-Top search option
+-Section for YouTube Videos
+-Section for YouTube Shorts
+-Fetch YouTube thumbnails with YouTube API.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- React
+- TypeScript
+- Material UI (MUI v7.2.0)
+- YouTube Data API v3
+- Axios
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting a YouTube API Key
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To use the YouTube API:
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a project and enable **YouTube Data API v3**.
+3. Go to **Credentials** and generate an **API Key**.
+4. Replace `YOUR_YOUTUBE_API_KEY` in the env with your real key.
+
+
+## Setup Instructions
+
+1. **Clone the repo**
+
+git clone https://github.com/kishor9868/Youtube.git 
+cd Youtube
+
+2. **Install dependencies**
+
+npm install
+
+3. **Environment Setup (.env)**
+
+To keep your API key secure and private:
+
+1. Create a `.env` file in the root directory of your project
+2. Add your YouTube API key like this:
+   
+   REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
+
+> ⚠️ All environment variables in React must start with `REACT_APP_`
+
+4. **Run the development server**
+
+npm start
+
+Then visit: [http://localhost:3000](http://localhost:3000)
 
 ### `npm test`
 
