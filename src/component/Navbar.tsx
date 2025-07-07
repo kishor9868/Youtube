@@ -9,11 +9,9 @@ const Navbar: React.FC = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         if (!value.trim()) return;
-
         if (debounceTimeout.current) {
             clearTimeout(debounceTimeout.current)   //clear the last timer
         }
-
         debounceTimeout.current = setTimeout(() => {
             dispatch(searchHandler(value))
         }, 500);

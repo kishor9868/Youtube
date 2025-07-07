@@ -11,7 +11,6 @@ const App = () => {
   const dispatch = useAppDispatch()
   const isLoading = useAppSelector(state => state.search.isLoading);
 
-
   useLayoutEffect(() => {
     dispatch(searchHandler("music"))
   }, [])
