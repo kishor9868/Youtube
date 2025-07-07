@@ -46,6 +46,7 @@ To keep your API key secure and private:
 2. Add your YouTube API key like this:
    
    REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
+   REACT_APP_YOUTUBE_BASE_URL=https://www.googleapis.com/youtube/v3/
 
 > ⚠️ All environment variables in React must start with `REACT_APP_`
 
